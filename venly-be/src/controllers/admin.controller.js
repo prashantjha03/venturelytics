@@ -1,4 +1,4 @@
-const Startup = require("../models/Startup.model");
+const Startup = require("../models/startup.model");
 const User = require("../models/User.model");
 
 /* =============================
