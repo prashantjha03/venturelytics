@@ -25,7 +25,7 @@ const app = express();
 ====================== */
 app.use(
   cors({
-    origin: "http://localhost:8080",
+    origin: "https://venturelytics-git-master-prashant-jhas-projects-1e280b00.vercel.app/" || "http://localhost:8080",
     credentials: true,
   })
 );
