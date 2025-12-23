@@ -2,6 +2,11 @@
 const transporter = require("../config/mail");
 
 const sendMail = async ({ to, subject, html }) => {
+  if (!transporter?.options?.auth) {
+    console.warn("⚠️ Email skipped: mail service not configured");
+    return false;
+  }
+
   try {
     await transporter.sendMail({
       from: `"Venturelytics" <${process.env.MAIL_USER}>`,
@@ -12,7 +17,7 @@ const sendMail = async ({ to, subject, html }) => {
 
     return true;
   } catch (error) {
-    console.error("❌ Email send failed:", error.message);
+    console.warn("⚠️ Email send failed");
     return false;
   }
 };
